@@ -1,6 +1,8 @@
 import type {UserConfig, ConfigEnv} from 'vite'
+import {loadEnv} from 'vite'
 import {resolve} from "path";
 import {createVitePlugins} from './build/vite/plugin';
+import {wrapperEnv} from "./build/utils";
 
 
 function pathResolve(dir: string) {
@@ -8,10 +10,15 @@ function pathResolve(dir: string) {
 }
 
 export default ({command, mode}: ConfigEnv): UserConfig => {
-    console.log('command--', command)
-    console.log('mode--', mode)
+    console.log(command)
+
     const root = process.cwd();
-    console.log('root--', root)
+
+    const env = loadEnv(mode, root);
+    // the boolean type read by loadEnv is a string,this function can convert it to boolean
+    const viteEnv = wrapperEnv({envConf : env});
+    console.log(viteEnv);
+
     return {
         base: '/',
         root,
