@@ -1,9 +1,60 @@
 {
   "compilerOptions": {
-    "composite": true,
+    "useDefineForClassFields": true,
+    "target": "ESNext",
     "module": "ESNext",
     "moduleResolution": "Node",
-    "allowSyntheticDefaultImports": true
+    "strict": true,
+    "noLib": false,
+    "forceConsistentCasingInFileNames": true,
+    "allowSyntheticDefaultImports": true,
+    "strictFunctionTypes": true,
+    "jsx": "preserve",
+    "baseUrl": ".",
+    "allowJs": true,
+    "sourceMap": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "experimentalDecorators": true,
+    "lib": [
+      "ESNext",
+      "DOM"
+    ],
+    "noImplicitAny": false,
+    "skipLibCheck": true,
+    "types": [
+      "vite/client"
+    ],
+    "removeComments": true,
+    "isolatedModules": true,
+    "paths": {
+      "/@/*": [
+        "src/*"
+      ],
+      "/#/*": [
+        "types/*"
+      ]
+    }
   },
-  "include": ["vite.config.ts"]
+  "include": [
+    "tests/**/*.ts",
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
+    "types/**/*.d.ts",
+    "types/**/*.ts",
+    "build/**/*.ts",
+    "build/**/*.d.ts",
+    "mock/**/*.ts",
+    "vite/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "tests/server/**/*.ts",
+    "dist",
+    "**/*.js"
+  ],
 }
